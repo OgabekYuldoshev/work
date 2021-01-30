@@ -18,6 +18,7 @@
     </div>
     <div class="show">
       <Info
+      @del="del(p.id)"
       v-for="p in products"
       :key="p.id"
       :name="p.name"
@@ -40,6 +41,11 @@ export default {
   components:{
     Control,
     Info,
+  },
+  methods:{
+    del(){
+      this.$emit("del")
+    }
   }
 }
 </script>

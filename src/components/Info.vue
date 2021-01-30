@@ -10,7 +10,11 @@
       <el-button type="primary" icon="el-icon-edit" circle></el-button>
       <el-button type="success" icon="el-icon-house" circle></el-button>
       <el-input-number v-model="count" @change="handlePrize" :max="20" :min="1"></el-input-number>
-      <el-button type="danger" icon="el-icon-delete" circle></el-button>
+      <el-button
+      type="danger"
+      @click="del"
+      icon="el-icon-delete"
+      circle></el-button>
     </div>
   </div>
 </template>
@@ -32,6 +36,9 @@ export default {
     },
     handlePrize(){
       this.allPrize = this.prize*this.count
+    },
+    del(){
+      this.$emit("del")
     }
   }
 }

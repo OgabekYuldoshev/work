@@ -8,7 +8,9 @@
         </el-main>
       </el-container>
       <el-aside width="500px">
-        <ControlPanel :products="data"/>
+        <ControlPanel
+        @del="del"
+        :products="products"/>
       </el-aside>
   </el-container>
   </div>
@@ -28,7 +30,7 @@ export default {
   },
   data(){
     return{
-      data:[]
+      products:[]
     }
   },
   methods:{
@@ -36,7 +38,10 @@ export default {
       const data = API.filter(p=>{
         return p.id === id
       })
-      this.data.push(data)
+      this.products.push(data[0])
+    },
+    del(){
+      this.products.pop()
     }
   }
 }
