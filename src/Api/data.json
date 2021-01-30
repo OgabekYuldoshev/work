@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1",
+    "name":"Lenovo",
+    "brend":"Lenovo",
+    "prize": 960000,
+    "percent": 93
+  },
+  {
+    "id": "2",
+    "name":"Macbook",
+    "brend":"Apple",
+    "prize": 250000,
+    "percent": 86
+  },
+  {
+    "id": "3",
+    "name":"Macbook Air",
+    "brend":"Apple",
+    "prize": 325000,
+    "percent": 88
+  },
+  {
+    "id": "4",
+    "name":"Lenovo phone",
+    "brend":"Lenovo",
+    "prize": 123000,
+    "percent": 53
+  },
+  {
+    "id": "5",
+    "name":"Samsung",
+    "brend":"Samsung",
+    "prize": 90000,
+    "percent": 25
+  },
+  {
+    "id": "6",
+    "name":"Samsung laptop",
+    "brend":"Samsung",
+    "prize": 150000,
+    "percent": 42
+  },
+  {
+    "id": "7",
+    "name":"GoPro",
+    "brend":"GoPro",
+    "prize": 30000,
+    "percent": 10
+  }
+]
