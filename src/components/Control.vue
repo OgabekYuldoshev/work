@@ -3,11 +3,11 @@
     <div class="info">
       <div class="info-prize">
         <p>All prize</p>
-        <h5>1 000 000 sum</h5>
+        <h5>{{allPrizeItem}} sum</h5>
       </div>
       <div class="info-prize">
-        <p>CashBack</p>
-        <h5>{{prizes}} sum</h5>
+        <p>Items</p>
+        <h5>{{allItem}}</h5>
       </div>
       <div class="info-prize">
         <p>Element</p>
@@ -27,25 +27,25 @@
       </el-button>
     </div>
     <div class="control-button">
-      <el-button type="danger">Clear</el-button>
+      <el-button type="danger" @click="clear">Clear</el-button>
       <el-button type="primary">Postponement</el-button>
-      <el-button type="success" @click="handlePay">Pay</el-button>
+      <el-button type="success" @click="pay">Pay</el-button>
     </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex"
 export default {
   name:"Control",
   props:["prizes"],
-  data(){
-    return{
-      prize: null
-    }
-  },
+  computed:mapGetters(['allPrizeItem', 'allItem']),
   methods:{
-    handlePay(){
-      this.$emit("pay")
+    clear(){
+      this.$store.dispatch("clear")
+    },
+    pay(){
+      this.$store.dispatch("Pay")
     }
   }
 }

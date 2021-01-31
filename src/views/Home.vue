@@ -4,13 +4,11 @@
       <el-container>
         <el-main>
           <Header/>
-          <ShowCase @handleProduct="filter"/>
+          <ShowCase />
         </el-main>
       </el-container>
       <el-aside width="500px">
-        <ControlPanel
-        @del="del"
-        :products="products"/>
+        <ControlPanel/>
       </el-aside>
   </el-container>
   </div>
@@ -20,7 +18,6 @@
 import ControlPanel from "../components/ControlPanel"
 import Header from "../components/Header"
 import ShowCase from "../components/ShowCase"
-import API from "../Api/data"
 export default {
   name: 'Home',
   components:{
@@ -28,22 +25,6 @@ export default {
     Header,
     ShowCase
   },
-  data(){
-    return{
-      products:[]
-    }
-  },
-  methods:{
-    filter(id){
-      const data = API.filter(p=>{
-        return p.id === id
-      })
-      this.products.push(data[0])
-    },
-    del(){
-      this.products.pop()
-    }
-  }
 }
 </script>
 

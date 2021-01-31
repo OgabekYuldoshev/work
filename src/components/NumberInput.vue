@@ -21,23 +21,7 @@
 <script>
 export default {
   name: "NumberInput",
-  data(){
-    return{
-      num:''
-    }
-  },
-  methods:{
-    clear(){
-      this.num = ''
-    },
-    append(num){
-      if(this.num.length !== 20){
-        this.num = `${this.num}${num}`
-      }else{
-        return this.num
-      }
-    }
-  }
+  
 }
 </script>
 

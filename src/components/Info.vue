@@ -4,7 +4,7 @@
       <p>{{name}}</p>
       <p>{{count}}</p>
       <p>{{prize}} sum</p>
-      <p>{{allPrize}} sum</p>
+      <p>{{count*prize}} sum</p>
     </div>
     <div v-if="show" class="handleItem">
       <el-button type="primary" icon="el-icon-edit" circle></el-button>
@@ -12,7 +12,6 @@
       <el-input-number v-model="count" @change="handlePrize" :max="20" :min="1"></el-input-number>
       <el-button
       type="danger"
-      @click="del"
       icon="el-icon-delete"
       circle></el-button>
     </div>
@@ -22,23 +21,19 @@
 <script>
 export default {
   name:"Info",
-  props:["prize", "name",],
+  props:["prize", "name", "count", "id"],
   data(){
     return{
       show: false,
-      count: 1,
-      allPrize: this.prize,
+      num: 1
     }
   },
   methods:{
     handleItem(){
       this.show = !this.show
     },
-    handlePrize(){
-      this.allPrize = this.prize*this.count
-    },
-    del(){
-      this.$emit("del")
+    handlePrize(value){
+      this.$store.dispatch("handleCount", value)
     }
   }
 }

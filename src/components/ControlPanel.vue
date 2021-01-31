@@ -18,11 +18,12 @@
     </div>
     <div class="show">
       <Info
-      @del="del(p.id)"
       v-for="p in products"
-      :key="p.id"
-      :name="p.name"
-      :prize="p.prize"
+      :key="p.product.id"
+      :name="p.product.name"
+      :prize="p.product.prize"
+      :count="p.quantity"
+      :id="p.product.id"
       />
     </div>
     <div class="control-item">
@@ -35,18 +36,14 @@
 <script>
 import Control from "./Control"
 import Info from "./Info"
+import {mapGetters} from "vuex"
 export default {
   name:"ControlPanel",
-  props:["products"],
   components:{
     Control,
     Info,
   },
-  methods:{
-    del(){
-      this.$emit("del")
-    }
-  }
+  computed: mapGetters(['products',]),
 }
 </script>
 

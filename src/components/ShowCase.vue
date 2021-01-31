@@ -1,6 +1,7 @@
 <template>
   <div id="show">
-    <div class="filter">
+    <div v-if="this.$store.state.pay === false">
+      <div class="filter">
       <el-button
       @click="filter(data.name)"
       class="button"
@@ -14,7 +15,12 @@
       :key="product.id"
       :name="product.name"
       :percent="product.percent"
-      :prize="product.prize"/>
+      :prize="product.prize"
+      />
+    </div>
+    </div>
+    <div v-if="this.$store.state.pay">
+      <Pay/>
     </div>
   </div>
 </template>
@@ -22,11 +28,12 @@
 <script>
 import Card from './Card.vue'
 import API from "../Api/data.json"
-
+import Pay from "./Pay"
 export default {
   name:"Show",
   components:{
     Card,
+    Pay,
   },
   data(){
     return{
@@ -52,7 +59,7 @@ export default {
   },
   methods:{
     handleProduct(id){
-      this.$emit("handleProduct", id)
+      this.$store.dispatch("handleProduct", id)
     },
     filter(value){
       const data = API.filter(product=>{
