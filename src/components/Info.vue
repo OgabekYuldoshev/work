@@ -9,7 +9,7 @@
     <div v-if="show" class="handleItem">
       <el-button type="primary" icon="el-icon-edit" circle></el-button>
       <el-button type="success" icon="el-icon-house" circle></el-button>
-      <el-input-number v-model="count" @change="handlePrize" :max="20" :min="1"></el-input-number>
+      <el-input-number v-model="count"  :min="1"></el-input-number>
       <el-button
       type="danger"
       icon="el-icon-delete"
@@ -32,9 +32,6 @@ export default {
     handleItem(){
       this.show = !this.show
     },
-    handlePrize(value){
-      this.$store.dispatch("handleCount", value)
-    }
   }
 }
 </script>
